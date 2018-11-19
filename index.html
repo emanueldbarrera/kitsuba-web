@@ -2,15 +2,15 @@
     <head>
         <title>Kitsuba Games</title>
         <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,800" rel="stylesheet">
     </head>
     <body>
         <header class="header">
             <ul class="header__button-list">
-                <li>Home</li>
-                <li>Games</li>
-                <li>Team</li>
-                <li>Contact</li>
+                <li scroll-to="section-home">Home</li>
+                <li scroll-to="section-games">Games</li>
+                <li scroll-to="section-team">Team</li>
+                <li scroll-to="section-contact">Contact</li>
             </ul>
             <div class="header__social">
                     <div class="social__icon"><a href="https://www.instagram.com/kitsuba.games/" target="_blank"><img src="images/icon-facebook.png"></a></div>
@@ -23,7 +23,7 @@
 
         <div class="red-line"></div>
 
-        <section class="section section-main">
+        <section class="section section-main" id="section-home">
             <div class="logo">
                 <img src="images/logo-main.png" />
             </div>
@@ -39,19 +39,19 @@
             <div class="arrow-down arrow-down--green"></div>
         </div>
 
-        <section class="section section--primary">
+        <section class="section section--primary" id="section-games">
             <h1>Games</h1>
             <div class="games">
                 <div class="game-icon">
-                    <img src="images/game-1.png" />
+                    <img src="images/game-1-bw.png" />
                     <div class="game-name">Chase That Cheese</div>
                 </div>
                 <div class="game-icon">
-                    <img src="images/game-2.png" />
+                    <img src="images/game-2-bw.png" />
                     <div class="game-name">Origami Boy</div>
                 </div>
                 <div class="game-icon">
-                    <img src="images/game-3.png" />
+                    <img src="images/game-3-bw.png" />
                     <div class="game-name">Naoki Nin</div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="arrow-up"></div>
         </div>
         
-        <section class="section section--secondary">
+        <section class="section section--secondary" id="section-team">
             </div>
             <h1>Team</h1>
             <p>We are a team of professionals recently conformed. We develop videogames both 2D and 3D trying to push the limits of the industry farther ahead.</p>
@@ -97,7 +97,7 @@
             <div class="arrow-down arrow-down--green"></div>
         </div>
 
-        <section class="section section--primary">
+        <section class="section section--primary" id="section-contact">
             <div class="contact">
                 <div class="contact__form">
                     <h1>Contact us</h1>
@@ -131,6 +131,9 @@
             </div>
         </footer>
 
-        <script src="main.js"></script>
+        <script src="scripts-vendor/jquery-3.3.1.min.js"></script>
+        <script src="scripts/games.js"></script>
+        <script src="scripts/scroll.js"></script>
+        <script src="scripts/carousel.js"></script>
     </body>
 </html>

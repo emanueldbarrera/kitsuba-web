@@ -1,3 +1,5 @@
+/* This file uses vanilla js because why not */
+
 var slideContainer = document.querySelector(".slide-container");
 var buttonContainer = document.querySelector(".slide-buttons");
 
