@@ -1,6 +1,8 @@
-body {
+html, body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 ul {
@@ -35,11 +37,6 @@ ul {
     margin-right: 30px;
 }
 
-.red-line {
-    min-height: 10px;
-    background-color: #AD252B;
-}
-
 .header__social > .social__icon {
     margin: 10px;
     box-sizing: border-box;
@@ -49,12 +46,18 @@ ul {
     height: 30px;
 }
 
+.red-line {
+    min-height: 10px;
+    background-color: #AD252B;
+}
+
 .section {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0px 30px 100px 30px;
+    padding: 50px 200px 50px 200px;
 }
 
 .section > h1 {
@@ -69,10 +72,12 @@ ul {
 
 .section--primary {
     background-color: #289D92;
+    padding-bottom: 100px;
 }
 
 .section--secondary {
     background-color: #F2F2F2;
+    padding-top: 0;
 }
 
 .section--secondary > h1 {
@@ -80,13 +85,157 @@ ul {
     background-color: #F2F2F2;
 }
 
+/* ------- Main section ----------*/
+.section-main {
+    position: relative;
+    padding: 0;
+} 
+
+.section-main .logo {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-main .logo img {
+    width: 40%;
+}
+
+.section-main .slide-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    transition: 0.5s ease-in-out;
+}
+
+.slide-container .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/carousel-1.png");
+    background-size: cover;
+    background-position-y: 50%;
+}
+
+.slide-buttons {
+    position: absolute;
+    z-index: 20;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.slide-buttons .slide-button {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #F2F2F2;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.slide-buttons .slide-button--selected {
+    background-color: #F2F2F2;
+    cursor: initial;
+}
+
+/*--------- Separation -----------*/
+.separator {
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+.arrow-down-transparent {
+    position: absolute;
+    top: -40px;
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-left: 50vw solid #232727;
+    border-right: 50vw solid #232727;
+    border-bottom: 0;
+}
+
 .arrow-down {
-    width: 0; 
-    height: 0; 
+    position: absolute;
+    top: 0;
     border-left: 50vw solid transparent;
     border-right: 50vw solid transparent;
-    border-top: 20px solid #232728;
-  }
+    border-top: 40px solid #232727;
+}
+
+.arrow-down--green {
+    background-color: #289D92;
+}
+
+.arrow-up-transparent {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 40px solid transparent;
+    border-left: 50vw solid #232727;
+    border-right: 50vw solid #232727;
+    border-top: 0;
+}
+
+.arrow-up {
+    position: absolute;
+    top: -40px;
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 40px solid #232727;
+}
+
+.arrow-up-transparent--white {
+    background-color: #F2F2F2;
+}
+
+/* .arrow-down--inner {
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-left: 40vw solid transparent;
+    border-right: 40vw solid transparent;
+    border-top: 70px transparent #FFF;
+} */
+
+.games {
+    display: flex;
+    width: 100%;
+}
+
+.games .game-icon {
+    margin: 10px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.games .game-name {
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: #F2F2F2;
+}
+
+.game-icon img {
+    width: 80%;
+}
 
 .team {
     display: flex;
@@ -95,5 +244,144 @@ ul {
 }
 
 .team .team__member {
-    margin: 20px 40px;
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.team__member img {
+    width: 80%;
+}
+
+.team__member .member__name, .team__member .member__position {
+    text-align: center;
+}
+
+.team__member .member__name {
+    margin-top: 5px;
+    font-weight: bolder;
+}
+
+/*---------------- Contact section -----------*/
+
+.contact {
+    background-image: url("images/kitsuba-fox.png");
+    background-repeat: no-repeat;
+    background-size: 40%;
+    width: 100%;
+}
+
+.contact {
+    font-size: 2em;
+    color: #F2F2F2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 582px;
+}
+
+.contact__form {
+    width: 55%;
+}
+
+.contact__form #form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact__form #form > * {
+    margin: 10px 0;
+}
+
+#form .form__input-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__input-row input[type=text] {
+    width: 80%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    flex-basis: 49%;
+}
+
+#form textarea {
+    padding: 12px 20px;
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+#form .form__send, input[type=text], textarea {
+    border-radius: 10px;
+    border: 1px solid #FFF;
+}
+
+#form .form__send {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 0.5em;
+    width: 70px;
+    height: 30px;
+}
+
+.contact__form .contact-form__text {
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+/*---------------- Footer -------------------*/
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #232727;
+    color: #FFF;
+}
+
+.footer > div {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.footer__img {
+    margin: 20px;
+}
+
+.footer__img img {
+    width: 35%;
+}
+
+.footer .footer__copyright {
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .footer__social {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.footer__social > .social__icon {
+    margin: 0 10px;
+}
+
+.social__icon img {
+    
 }
