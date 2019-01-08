@@ -31,6 +31,7 @@ $message = $_POST["message"];
 
 $mail->addReplyTo($replyToEmail);
 $mail->From = "kitsubastudio@gmail.com";
+$mail->Sender = "kitsubastudio@gmail.com";
 $mail->FromName = "Kitsuba Games";
 
 $mail->addAddress("kitsubastudio@gmail.com", "Kitsuba Games");
