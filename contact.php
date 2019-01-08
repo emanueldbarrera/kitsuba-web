@@ -25,8 +25,7 @@ $mail->SMTPSecure = "tls";
 //Set TCP port to connect to
 $mail->Port = 587;
 
-print_r($_POST);
-print_r($_GET);
+var_dump($_POST);
 
 $name->$_POST["name"][0];
 $replyToEmail->$_POST["email"][0];
