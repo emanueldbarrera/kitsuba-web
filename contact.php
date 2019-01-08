@@ -40,7 +40,7 @@ $mail->addAddress("kitsubastudio@gmail.com", "Recepient Name");
 
 $mail->isHTML(true);
 
-$mail->Subject = "Message from Website (" + $name + ")";
+$mail->Subject = "Message from Website (" . $name . ")";
 $mail->Body = $message;
 $mail->AltBody = $message;
 
