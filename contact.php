@@ -6,7 +6,7 @@ error_reporting(-1);
 
 require_once "vendor/autoload.php";
 
-$mail = new PHPMailer;
+$mail = new PHPMailer\PHPMailer\PHPMailer();
 
 //Enable SMTP debugging.
 $mail->SMTPDebug = 3;
