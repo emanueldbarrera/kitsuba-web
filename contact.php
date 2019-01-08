@@ -25,11 +25,14 @@ $mail->SMTPSecure = "tls";
 //Set TCP port to connect to
 $mail->Port = 587;
 
+print_r($_POST);
+print_r($_GET);
+
 $name->$_POST['name'];
 $replyToEmail->$_POST['email'];
 $message->$_POST['message'];
 
-$mail->ReplyTo = $replyToEmail;
+$mail->AddReplyTo($replyToEmail);
 $mail->From = "kitsubastudio@gmail.com";
 $mail->FromName = "Full Name";
 
