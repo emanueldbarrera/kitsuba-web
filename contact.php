@@ -1,8 +1,9 @@
 <?php
 
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
+// Debug lines
+// ini_set('display_startup_errors', 1);
+// ini_set('display_errors', 1);
+// error_reporting(-1);
 
 require_once "vendor/autoload.php";
 
@@ -24,6 +25,11 @@ $mail->SMTPSecure = "tls";
 //Set TCP port to connect to
 $mail->Port = 587;
 
+$name->$_POST['name'];
+$replyToEmail->$_POST['email'];
+$message->$_POST['message'];
+
+$mail->ReplyTo = $replyToEmail;
 $mail->From = "kitsubastudio@gmail.com";
 $mail->FromName = "Full Name";
 
@@ -31,9 +37,9 @@ $mail->addAddress("kitsubastudio@gmail.com", "Recepient Name");
 
 $mail->isHTML(true);
 
-$mail->Subject = "Subject Text";
-$mail->Body = "<i>Mail body in HTML</i>";
-$mail->AltBody = "This is the plain text version of the email content";
+$mail->Subject = "Message from Website (" + $name + ")";
+$mail->Body = $message;
+$mail->AltBody = $message;
 
 if(!$mail->send())
 {
