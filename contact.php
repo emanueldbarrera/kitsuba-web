@@ -29,11 +29,9 @@ $name = $_POST["name"];
 $replyToEmail = $_POST["email"];
 $message = $_POST["message"];
 
-$mail->AddReplyTo($replyToEmail);
+$mail->addReplyTo($replyToEmail);
 $mail->From = "kitsubastudio@gmail.com";
-$mail->FromName = "Full Name";
-
-$mail->addAddress("kitsubastudio@gmail.com", "Recepient Name");
+$mail->FromName = "Kitsuba Games";
 
 $mail->isHTML(true);
 
