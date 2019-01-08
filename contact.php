@@ -33,6 +33,8 @@ $mail->addReplyTo($replyToEmail);
 $mail->From = "kitsubastudio@gmail.com";
 $mail->FromName = "Kitsuba Games";
 
+$mail->addAddress("kitsubastudio@gmail.com", "Kitsuba Games");
+
 $mail->isHTML(true);
 
 $mail->Subject = "Message from Website (" . $name . ")";
