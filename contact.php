@@ -28,9 +28,9 @@ $mail->Port = 587;
 print_r($_POST);
 print_r($_GET);
 
-$name->$_POST["name"];
-$replyToEmail->$_POST["email"];
-$message->$_POST["message"];
+$name->$_POST["name"][0];
+$replyToEmail->$_POST["email"][0];
+$message->$_POST["message"][0];
 
 $mail->AddReplyTo($replyToEmail);
 $mail->From = "kitsubastudio@gmail.com";
