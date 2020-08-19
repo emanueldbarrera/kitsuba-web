@@ -2,29 +2,33 @@
 
 var slideContainer = document.querySelector(".slide-container");
 var buttonContainer = document.querySelector(".slide-buttons");
+var shouldAutoMoveCarousel = true;
+var currentSlide = 0;
+var slides = 3;
 
 function createSlide(slideNumber) {
+    slideNumberImage = Math.abs(slideNumber % slides);
     slide = document.createElement("div");
     slide.className = "slide";
-    slide.style.backgroundImage = 'images/carousel-{}.png'.replace('{}', slideNumber + 1);
+    slide.style.backgroundImage = 'url("images/carousel-{}.jpg")'.replace('{}', slideNumberImage + 1);
     slide.style.transform = 'translateX(' + slideNumber + '00%)';
     return slide;
 }
 
-function generateCarousel(slidesQuantity) {
-    var slide = '<div class="slide"></div>';
-    
+function generateCarousel(slidesQuantity) {    
     for(var i = 0; i < slidesQuantity; i++) {
         slideContainer.appendChild(createSlide(i));
     }
 }
 
-function animateCarousel(toPos) {
-    slideContainer.style.transform = 'translateX(' + toPos + '%)'
+function animateCarousel(slide) {
+    if (slide >= slides || slide <= 0) {
+        slideContainer.appendChild(createSlide(slide));
+    }
+    slideContainer.style.transform = 'translateX(' + slide*-100 + '%)';
 }
 
 function drawSlideButtons(slidesQuantity){
-    
     for(var i = 0; i < slidesQuantity; i++) {
         buttonElement = document.createElement("div");
         buttonElement.className = "slide-button";
@@ -38,17 +42,44 @@ function drawSlideButtons(slidesQuantity){
                 buttons[j].className = 'slide-button';
             }
             this.className = buttonElement.className + ' slide-button--selected';
-            animateCarousel(this.getAttribute("slide-number")*-100);
+            var slideNumber = this.getAttribute("slide-number");
+            slideNumber = currentSlide - Math.abs(currentSlide % slides) + parseInt(slideNumber);
+            animateCarousel(slideNumber);
+            currentSlide = slideNumber;
+            shouldAutoMoveCarousel = false;
         });
         buttonContainer.appendChild(buttonElement);
     }
-    
+}
+
+function manuallyMoveCarousel(slide) {
+    currentSlide = slide;
+    currentSlide = currentSlide;
+    animateCarousel(currentSlide);
+    var buttons = document.querySelectorAll(".slide-button");
+    for (var i = 0; i < buttons.length; i++){
+        if (i == Math.abs(currentSlide%slides)) {
+            buttons[i].className = buttonElement.className + ' slide-button--selected';
+        } else {
+            buttons[i].className = 'slide-button';
+        }
+    }
+}
+
+function autoMoveCarousel() {
+    setInterval(function(){
+        if(shouldAutoMoveCarousel){
+            manuallyMoveCarousel(currentSlide+1);
+        } else {
+            shouldAutoMoveCarousel = true;
+        }
+    }, 3500);
 }
 
 function init() {
-    slides = 3;
     generateCarousel(slides);
     drawSlideButtons(slides);
+    autoMoveCarousel();
 }
 
 init();
